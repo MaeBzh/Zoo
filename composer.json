@@ -1,0 +1,26 @@
+{
+    "name": "project_zoo",
+    "description": "Project Zoo - CNAM Database Module",
+    "type": "project",
+    "license": "Student",
+    "authors": [
+        {
+            "name": "Maelenn Picaud",
+            "email": "maelenn.picaud@gmail.com              "
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "almasaeed2010/adminlte": "~2.0"
+    },
+    "config": {
+        "vendor-dir": "public/plugins"
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "Mini\\" : "application/"
+        }
+    }
+}
