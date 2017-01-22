@@ -1,0 +1,63 @@
+.user-panel {
+  padding-bottom: 0;
+}
+
+.user-panel > .info {
+  position: relative;
+  left: 0;
+}
+
+.sidebar-form {
+  margin-top: 0px;
+}
+
+.skin-yellow .wrapper, .skin-yellow .main-sidebar, .skin-yellow .left-side {
+  background-color: rgba(35,31,64,1);
+}
+
+.content-wrapper, .right-side {
+  background-color: #ededed;
+}
+
+.box{
+  height: 100%;
+}
+
+.box .box-header{
+  border-top : 2px solid;
+  border-right : 1px solid;
+  border-left : 1px solid;
+  border-bottom: 1px solid;
+}
+
+.box .box-body{
+  border-right : 1px solid;
+  border-left : 1px solid;
+  border-bottom: 1px solid;
+}
+
+.box .box-footer {
+  border-right : 1px solid;
+  border-left : 1px solid;
+  border-bottom: 1px solid;
+}
+
+.box-info .box-footer, .box-info .box-header, .box-info .box-body{
+  border-color: #00c0ef ;
+}
+
+.box-primary .box-footer, .box-primary .box-header, .box-primary .box-body{
+  border-color: #3c8dbc ;
+}
+
+.box-success .box-footer, .box-success .box-header, .box-success .box-body{
+  border-color: #00a65a ;
+}
+
+.box-warning .box-footer, .box-warning .box-header, .box-warning .box-body{
+  border-color: #f39c12 ;
+}
+
+.box-danger .box-footer, .box-danger .box-header, .box-danger .box-body{
+  border-color: #dd4b39 ;
+}
