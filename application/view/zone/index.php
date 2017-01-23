@@ -25,26 +25,29 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <ul class="" style="padding-left: 0">
+                            <!-- Secretaire + Responsable -->
                             <li class="list-group-item">
-                                <a href="<?php echo URL ?>zone/consulter_zones" class="btn btn-block btn-social btn-warning">
-                                    <i class="fa fa-search"></i> Consulter, modifier les zones
+                                <a href="<?php echo URL ?>zone/consulter_zones"
+                                   class="btn btn-block btn-social btn-warning">
+                                    <i class="fa fa-search"></i>
+                                    <?php if($utilisateur->type == "secretaire"){
+                                        echo "Consulter, modifier, supprimer les zones";
+                                    } else {
+                                        echo "Consulter les zones";
+                                    } ?>
                                 </a>
                             </li>
-                            <li class="list-group-item">
-                                <a href="<?php echo URL ?>zone/formulaire_ajout" class="btn btn-block btn-social btn-warning">
-                                    <i class="fa fa-plus"></i> Ajouter une nouvelle zone
-                                </a>
-                            </li>
-<!--                            <li class="list-group-item">-->
-<!--                                <a class="btn btn-block btn-social btn-warning">-->
-<!--                                    <i class="fa fa-pencil"></i> Modifier une zone-->
-<!--                                </a>-->
-<!--                            </li>-->
-<!--                            <li class="list-group-item">-->
-<!--                                <a class="btn btn-block btn-social btn-warning">-->
-<!--                                    <i class="fa fa-trash"></i> Supprimer une zone-->
-<!--                                </a>-->
-<!--                            </li>-->
+
+                            <!-- Secretaire -->
+                            <?php if ($utilisateur->type == "secretaire") { ?>
+                                <li class="list-group-item">
+                                    <a href="<?php echo URL ?>zone/formulaire_ajout"
+                                       class="btn btn-block btn-social btn-warning">
+                                        <i class="fa fa-plus"></i> Ajouter une nouvelle zone
+                                    </a>
+                                </li>
+                            <?php } ?>
+
                         </ul>
                     </div>
                     <!-- /.box-body -->
