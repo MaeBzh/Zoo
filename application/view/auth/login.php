@@ -14,13 +14,22 @@
     <!--    </section>-->
 
     <!-- Main content -->
-    <section class="content">
-        <div class="row ">
-            <div class="col-md-12">
-                <div class="well" style="background-color: transparent; border-color: transparent">
-                    <img class="img img-responsive center-block" src="<?php echo URL ?>img/zoo_bermal.jpg">
+    <section class="content content-no-padding-top">
+        <div class="row skin ">
+            <div class="col-xs-12  col-no-padding">
+
+                <div class="">
+                    <div class="text-center ">
+                        <h1 class="cover titre"><span class="lettre">Z</span>oo de
+                            <span class="lettre">B</span>ougenais</h1>
+                    </div>
+
                 </div>
             </div>
+        </div>
+
+                <!--<img class="img_titre img img-responsive center-block" src="<?php echo URL ?>img/zoo_bermal.jpg">-->
+        <div class="row">
             <!-- left column -->
             <div class="col-md-6">
                 <!-- general form elements -->
@@ -66,7 +75,7 @@
             <div class="col-md-6">
                 <div class="box box-warning">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Bienvenue sur l'interface de gestion du Zoo Bermal</h1>
+                        <h1 class="box-title">Bienvenue sur l'interface de gestion du Zoo de Bougenais</h1>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
@@ -75,7 +84,8 @@
                             <p style="font-size: 1.2em"><i class="fa fa-exclamation-triangle"></i> Cette interface est
                                 uniquement réservé au personnel du zoo.</p>
                         </div>
-                        <p style="font-size: 1.2em">Afin d'accéder au contenu de la plateforme de gestion du Zoo Bermal
+                        <p style="font-size: 1.2em">Afin d'accéder au contenu de la plateforme de gestion du Zoo de
+                            Bougenais
                             vous devez vous munir de :</p>
                         <ul style="font-size: 1.2em">
                             <li><i class="fa fa-user"></i> Votre identifiant de connexion</li>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Zoo Bermal</title>
+    <title>Zoo de Bougenais</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -30,12 +30,14 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="<?php echo URL ?>" class="logo" style="border: 1px solid transparent">
+        <a href="<?php echo URL ?>" class="logo" >
+            <p class="titre_logo" ><span class="lettre_logo" >Z</span>oo de <span  class="lettre_logo">B</span>ougenais</p>
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>Zoo Bermal</b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"> <img class="img img-responsive center-block" src="<?php echo URL?>img/zoo_bermal.jpg" style="max-height: 50px"></span>
+            <!--<span class="logo-lg"> <img class="img img-responsive center-block" src="<?php echo URL?>img/zoo_bermal.jpg" style="max-height: 50px"></span>-->
         </a>
+
+
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
