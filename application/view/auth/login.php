@@ -97,6 +97,11 @@
                     <div class="box-footer">
                         <p style="font-size: 1.2em"><i class="fa fa-info-circle"></i> En cas de perte de vos
                             identifiants, adressez vous au responsable informatique du parc.</p>
+                        <ul style="font-size: 1.2em">
+                            <li><i class="fa fa-user"></i> Compte secretaire : ferland.virginie / ferland47</li>
+                            <li><i class="fa fa-user"></i> Compte responsable : roy.antoine / antoine45</li>
+                            <li><i class="fa fa-user"></i> Compte magasinier : nadeau.michel / nadeau46</li>
+                        </ul>
                     </div>
                 </div>
             </div>
