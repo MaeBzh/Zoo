@@ -26,7 +26,7 @@
                     <div class="box-body">
                         <ul class="" style="padding-left: 0">
                             <li class="list-group-item">
-                                <a class="btn btn-block btn-social btn-warning">
+                                <a href="<?php echo URL."aliments/consulter_stocks" ?>" class="btn btn-block btn-social btn-warning">
                                     <i class="fa fa-search"></i> Consulter les stocks
                                 </a>
                             </li>
