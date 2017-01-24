@@ -24,6 +24,56 @@ class AnimauxController extends Controller
         require APP . 'view/_templates/footer.php';
     }
 
+    public function formulaire_ajout()
+    {
+        $utilisateur = $this->utilisateur;
+
+        $especes = (new Espece())->getAll();
+        $zones = (new Zone())->getAll();
+
+        $sexes = (new Animal())->getEnumSexe();
+        $procedes_identification = (new Animal())->getEnumIdentification();
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/menu.php';
+        require APP . 'view/animaux/formulaire_ajout.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    public function post_formulaire_ajout()
+    {
+        $utilisateur = $this->utilisateur;
+
+        $nom = $_POST['nom'];
+        $sexe = $_POST['sexe'];
+        $date_naissance = $_POST['date_naissance'];
+        $date_arrivee = $_POST['date_arrivee'];
+        $date_deces = $_POST['date_deces'];
+        $procede_identification = $_POST['procede_identification'];
+        $numero = $_POST['numero'];
+        $espece = $_POST['espece'];
+        $zone = $_POST['zone'];
+
+        $animal = new Animal();
+        $animal->nom = $nom;
+        $animal->sexe = $sexe;
+        $animal->date_naissance = (!empty($date_naissance))? $date_naissance : null;
+        $animal->date_arrivee = (!empty($date_arrivee))? $date_arrivee : null;
+        $animal->date_deces = (!empty($date_deces))? $date_deces : null;
+        $animal->procede_identification = $procede_identification;
+        $animal->numero = $numero;
+        $animal->espece_id = $espece;
+        $animal->zone_id = $zone;
+
+        $animal->insert(); 
+
+        $location = URL . "animaux";
+
+        header("Location: $location");
+
+    }
+
     public function afficher_zones()
     {
         $utilisateur = $this->utilisateur;

@@ -12,6 +12,7 @@ class Animal extends Model
     public static $procede_identification_enum = ['Puce', 'Tatouage'];
 
     public $id ;
+    public $nom;
     public $commentaire ;
     public $date_arrivee ;
     public $date_naissance ;
@@ -83,4 +84,48 @@ class Animal extends Model
         return $query->fetchAll(\PDO::FETCH_CLASS, Animal::class);
 
     }
+
+    public function getEnumSexe()
+    {
+        $animal_table = Animal::$table;
+        $sexe_column = "sexe";
+
+        $query = self::$db->query("SHOW COLUMNS FROM $animal_table LIKE '$sexe_column'");
+        $result = $query->fetch();
+
+        return explode("','",preg_replace("/(enum|set)\('(.+?)'\)/","\\2", $result->Type));
+    }
+
+
+    public function getEnumIdentification()
+    {
+        $animal_table = Animal::$table;
+        $identification_column = "procede_identification";
+
+        $query = self::$db->query("SHOW COLUMNS FROM $animal_table LIKE '$identification_column'");
+        $result = $query->fetch();
+
+        return explode("','",preg_replace("/(enum|set)\('(.+?)'\)/","\\2", $result->Type));
+    }
+
+    public function insert(){
+        $animal_table = self::$table;
+
+        $query = self::$db->prepare("INSERT INTO $animal_table (nom, commentaire, sexe, date_naissance, date_arrivee, date_deces, procede_identification, numero, zone_id, espece_id) 
+          VALUES (:nom, :commentaire, :sexe, :date_naissance, :date_arrivee, :date_deces, :procede_identification, :numero, :zone_id, :espece_id)");
+        $parameters = array(
+            ':nom' => $this->nom,
+            ':sexe' => $this->sexe,
+            ':commentaire' => $this->commentaire,
+            ':date_naissance' => $this->date_naissance,
+            ':date_arrivee' => $this->date_arrivee,
+            ':date_deces' => $this->date_deces,
+            ':procede_identification' => $this->procede_identification,
+            ':numero' => $this->numero,
+            ':zone_id' => $this->zone_id,
+            ':espece_id' => $this->espece_id,
+        );
+        return $query->execute($parameters);
+    }
+
 }
