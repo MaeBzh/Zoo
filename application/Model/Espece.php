@@ -30,4 +30,25 @@ class Espece extends Model
         $query->execute($parameters);
         return $query->fetchObject(Famille::class);
     }
+
+
+    public function getAll(){
+        $table = self::$table;
+
+        $query = self::$db->prepare("SELECT * FROM $table");
+
+        $query->execute();
+        return $query->fetchAll(\PDO::FETCH_CLASS, self::class);
+    }
+
+    public function getById($id){
+        $table = self::$table;
+
+        $query = self::$db->prepare("SELECT * FROM $table WHERE id = :id LIMIT 1");
+        $parameters = array(
+            ':id' => $id
+        );
+        $query->execute($parameters);
+        return $query->fetchObject(self::class);
+    }
 }

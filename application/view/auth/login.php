@@ -28,7 +28,6 @@
             </div>
         </div>
 
-                <!--<img class="img_titre img img-responsive center-block" src="<?php echo URL ?>img/zoo_bermal.jpg">-->
         <div class="row">
             <!-- left column -->
             <div class="col-md-6">
@@ -44,7 +43,7 @@
                             <?php if (isset($erreur) and (bool)$erreur == true) { ?>
                                 <div class="callout callout-danger">
                                     <p><i class="fa fa-exclamation-triangle"></i> L'identifiant et le mot de passe
-                                        renseigné ne correspondent pas.</p>
+                                        renseignés ne correspondent pas.</p>
                                 </div>
                             <?php } ?>
 

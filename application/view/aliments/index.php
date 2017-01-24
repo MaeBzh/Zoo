@@ -30,21 +30,7 @@
                                     <i class="fa fa-search"></i> Consulter les stocks
                                 </a>
                             </li>
-                            <li class="list-group-item">
-                                <a class="btn btn-block btn-social btn-warning">
-                                    <i class="fa fa-plus"></i> Ajouter une nouvelle fiche aliment
-                                </a>
-                            </li>
-                            <li class="list-group-item">
-                                <a class="btn btn-block btn-social btn-warning">
-                                    <i class="fa fa-pencil"></i> Modifier une fiche aliment
-                                </a>
-                            </li>
-                            <li class="list-group-item">
-                                <a class="btn btn-block btn-social btn-warning">
-                                    <i class="fa fa-trash"></i> Supprimer une fiche aliment
-                                </a>
-                            </li>
+
                         </ul>
                     </div>
                     <!-- /.box-body -->

@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <div class="box box-warning">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-paw"></i> Liste des animaux par zone</h3>
+                        <h3 class="box-title"><i class="fa fa-paw"></i> Liste des animaux par espece</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <!--/.col (right) -->
-            <button type="button" class="btn btn-warning btn_retour"><a class="btn_retour" href="<?php echo URL ?>animaux/afficher_zones" >Retour à la liste des zones</a></button>
+            <button type="button" class="btn btn-warning btn_retour"><a class="btn_retour" href="<?php echo URL ?>animaux/afficher_especes" >Retour à la liste des espèces</a></button>
         </div>
         <!-- /.row -->
     </section>

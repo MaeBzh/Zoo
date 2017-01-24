@@ -59,4 +59,28 @@ class Animal extends Model
         $query->execute($parameters);
         return $query->fetchObject(Aliment::class);
     }
+
+    public function getByZone($zone_id){
+        $animal_table = Animal::$table;
+
+        $query = self::$db->prepare("SELECT * FROM $animal_table  WHERE zone_id = :id");
+        $parameters = array(
+            ":id" => $zone_id
+        );
+        $query->execute($parameters);
+        return $query->fetchAll(\PDO::FETCH_CLASS, Animal::class);
+
+    }
+
+    public function getByEspece($espece_id){
+        $animal_table = Animal::$table;
+
+        $query = self::$db->prepare("SELECT * FROM $animal_table  WHERE espece_id = :id");
+        $parameters = array(
+            ":id" => $espece_id
+        );
+        $query->execute($parameters);
+        return $query->fetchAll(\PDO::FETCH_CLASS, Animal::class);
+
+    }
 }

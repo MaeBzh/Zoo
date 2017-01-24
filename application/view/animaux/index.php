@@ -26,23 +26,23 @@
                     <div class="box-body">
                         <ul class="" style="padding-left: 0">
                             <li class="list-group-item">
-                                <a href="<?php echo URL ?>animaux/consulter_liste_animaux_par_zone" class="btn btn-block btn-social btn-warning">
+                                <a href="<?php echo URL ?>animaux/afficher_zones" class="btn btn-block btn-social btn-warning">
                                     <i class="fa fa-search"></i> Consulter les animaux par zone
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a class="btn btn-block btn-social btn-warning">
+                                <a href="<?php echo URL ?>animaux/afficher_especes" class="btn btn-block btn-social btn-warning">
                                     <i class="fa fa-search"></i> Consulter les animaux par espèce
                                 </a>
                             </li>
                             <li class="divider"></li>
                             <li class="list-group-item">
-                                <a class="btn btn-block btn-social btn-warning">
+                                <a href="<?php echo URL ?>animaux/formulaire_ajout" class="btn btn-block btn-social btn-warning">
                                     <i class="fa fa-plus"></i> Ajouter une nouvelle fiche animal
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a class="btn btn-block btn-social btn-warning">
+                                <a href="<?php echo URL ?>animaux/formulaire_edition_animal" class="btn btn-block btn-social btn-warning">
                                     <i class="fa fa-pencil"></i> Modifier une fiche animal
                                 </a>
                             </li>

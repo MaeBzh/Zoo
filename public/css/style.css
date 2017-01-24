@@ -62,7 +62,7 @@
   border-color: #dd4b39 ;
 }
 
-/****** fonts*******/
+/************************************* fonts***************************************************/
 
 @font-face {
   font-family: 'jungle_roarbold';
@@ -82,7 +82,7 @@
 
 }
 
-/***********header************/
+/**********************************************titre et logo************************************/
 
 .content-no-padding-top{
   padding-top: 0px;
@@ -120,12 +120,22 @@
   font-size: 120px;
   color :#231F40;       /*violet */
 }
+.skin-yellow .main-header .logo {
+  background-color: #89A00D;
+  height : auto;
+}
 
+.skin-yellow .main-header .logo:hover{
+  background-color: #89A00D;
+}
+
+p {
+  margin: 0 0 2px;
+}
 
 .titre_logo {
   font-family: 'comfortaabold';
   font-size: 20px;
-  line-height: 50px;
   color : #100912;         /*violet foncé*/
 }
 
@@ -133,5 +143,17 @@
   font-family: 'jungle_roarbold';
   font-size: 30px;
   color :#231F40;       /*violet */
+}
+
+/****************************************************************************************/
+
+.btn_retour {
+  margin: auto;
+  display: block;
+  color : white;
+}
+
+.btn_retour:hover{
+  color : white;
 }
 
