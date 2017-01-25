@@ -89,7 +89,7 @@ class RepasController extends Controller
 
         // load javascripts
         $scripts_src = [
-            "js/repas/formulaire_ajout.js"
+            URL."js/repas/formulaire_ajout.js"
         ];
         // load views
         require APP . 'view/_templates/header.php';
