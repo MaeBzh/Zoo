@@ -30,12 +30,13 @@
                                 <tr>
                                     <th>Désignation</th>
                                     <th>Afficher la liste des animaux</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php foreach ($especes as $espece) { ?>
                                     <tr>
-                                        <!-- Zone -->
+                                        <!-- Espece -->
                                         <td><?php echo $espece->nom_vulgaire ?></td>
                                         <td>
                                             <a href="<?php echo URL ?>animaux/consulter_liste_animaux_par_espece?id=<?php echo $espece->id ?>"

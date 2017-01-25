@@ -42,13 +42,8 @@
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="<?php echo URL ?>animaux/formulaire_edition_animal" class="btn btn-block btn-social btn-warning">
+                                <a href="<?php echo URL ?>animaux/afficher_especes" class="btn btn-block btn-social btn-warning">
                                     <i class="fa fa-pencil"></i> Modifier une fiche animal
-                                </a>
-                            </li>
-                            <li class="list-group-item">
-                                <a class="btn btn-block btn-social btn-warning">
-                                    <i class="fa fa-trash"></i> Supprimer une fiche animal
                                 </a>
                             </li>
                             <li class="divider"></li>

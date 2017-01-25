@@ -128,4 +128,25 @@ class Animal extends Model
         return $query->execute($parameters);
     }
 
+    public function update(){
+        $animal_table = self::$table;
+
+        $query = self::$db->prepare("UPDATE $animal_table SET nom = :nom, commentaire = :commentaire, date_arrivee = :date_arrivee, date_naissance = :date_naissance, numero = :numero, procede_identification = :procede_identification, date_deces = :date_deces, zone_id = :zone_id, espece_id = :espece_id, sexe = :sexe
+          WHERE id = :id");
+        $parameters = array(
+            ':id' => $this->id,
+            ':nom' => $this->nom,
+            ':sexe' => $this->sexe,
+            ':commentaire' => $this->commentaire,
+            ':date_naissance' => $this->date_naissance,
+            ':date_arrivee' => $this->date_arrivee,
+            ':date_deces' => $this->date_deces,
+            ':procede_identification' => $this->procede_identification,
+            ':numero' => $this->numero,
+            ':zone_id' => $this->zone_id,
+            ':espece_id' => $this->espece_id,
+        );
+        return $query->execute($parameters);
+    }
+
 }

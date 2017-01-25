@@ -66,9 +66,67 @@ class AnimauxController extends Controller
         $animal->espece_id = $espece;
         $animal->zone_id = $zone;
 
-        $animal->insert(); 
+
+        $animal->insert();
 
         $location = URL . "animaux";
+
+        header("Location: $location");
+
+    }
+
+    public function formulaire_edition(){
+
+        $utilisateur = $this->utilisateur;
+
+        $id = $_GET['id'];
+
+        $animal = (new Animal())->getById($id);
+        $especes = (new Espece())->getAll();
+        $zones = (new Zone())->getAll();
+
+        $sexes = (new Animal())->getEnumSexe();
+        $procedes_identification = (new Animal())->getEnumIdentification();
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/menu.php';
+        require APP . 'view/animaux/formulaire_edition.php';
+        require APP . 'view/_templates/footer.php';
+
+    }
+
+    public function post_formulaire_edition(){
+
+        $utilisateur = $this->utilisateur;
+
+        $id = $_POST['id'];
+        $nom = $_POST['nom'];
+        $sexe = $_POST['sexe'];
+        $date_naissance = $_POST['date_naissance'];
+        $date_arrivee = $_POST['date_arrivee'];
+        $date_deces = $_POST['date_deces'];
+        $procede_identification = $_POST['procede_identification'];
+        $numero = $_POST['numero'];
+        $espece = $_POST['espece'];
+        $zone = $_POST['zone'];
+
+
+        $animal = new Animal();
+        $animal->id = $id;
+        $animal->nom = $nom;
+        $animal->sexe = $sexe;
+        $animal->date_naissance = (!empty($date_naissance))? $date_naissance : null;
+        $animal->date_arrivee = (!empty($date_arrivee))? $date_arrivee : null;
+        $animal->date_deces = (!empty($date_deces))? $date_deces : null;
+        $animal->procede_identification = $procede_identification;
+        $animal->numero = $numero;
+        $animal->espece_id = $espece;
+        $animal->zone_id = $zone;
+
+        $animal->update();
+
+        $location = URL . "animaux/afficher_especes";
 
         header("Location: $location");
 
@@ -87,6 +145,7 @@ class AnimauxController extends Controller
         require APP . 'view/_templates/footer.php';
     }
 
+
     public function consulter_liste_animaux_par_zone()
     {
         $utilisateur = $this->utilisateur;
@@ -94,6 +153,10 @@ class AnimauxController extends Controller
         $id = $_GET['id'];
         $zone = (new Zone())->getById($id);
         $animaux = (new Animal())->getByZone($id);
+        foreach($animaux as $animal){
+            $animal->espece = $animal->getEspece();
+        }
+
 
 
             // load views
@@ -116,6 +179,7 @@ class AnimauxController extends Controller
         require APP . 'view/_templates/footer.php';
     }
 
+
     public function consulter_liste_animaux_par_espece()
     {
         $utilisateur = $this->utilisateur;
@@ -131,4 +195,8 @@ class AnimauxController extends Controller
         require APP . 'view/animaux/consulter_liste_animaux_par_espece.php';
         require APP . 'view/_templates/footer.php';
     }
+
+
+
+
 }

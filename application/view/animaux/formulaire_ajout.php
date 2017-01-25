@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <div class="box box-warning">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-tree"></i> Ajout d'un animal</h3>
+                        <h3 class="box-title"><i class="fa fa-paw"></i> Ajout d'un animal</h3>
                     </div>
                     <form role="form" method="post" action="<?php echo URL ?>animaux/post_formulaire_ajout">
                         <div class="box-body">
