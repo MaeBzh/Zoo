@@ -3,6 +3,8 @@
 namespace Mini\Controller;
 
 use Mini\Model\Aliment;
+use Mini\Model\Animal;
+use Mini\Model\Mange;
 use Mini\Model\Repas;
 use Mini\Model\Zone;
 
@@ -77,6 +79,19 @@ class RepasController extends Controller
         require APP . 'view/_templates/footer.php';
     }
 
+    public function afficher_zones()
+    {
+        $utilisateur = $this->utilisateur;
+
+        $zones = (new Zone())->getAll();
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/menu.php';
+        require APP . 'view/repas/afficher_zones.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
     /**
      * Affiche le formulaire pour ajouter un repas
      */
@@ -84,13 +99,56 @@ class RepasController extends Controller
     {
         $utilisateur = $this->utilisateur;
 
-        $zones = (new Zone())->getAll();
+        $zone_id = $_GET["id"];
+
+        $zone = (new Zone())->getById($zone_id);
+        $animaux = (new Animal())->getByZone($zone_id);
+
+        $aliments_zone = [];
+        $tmp = [];
+
+        foreach ($animaux as $animal){
+            $animal->mange = (new Mange())->getByAnimal($animal->id);
+            foreach ($animal->mange as $mange){
+                $mange->aliment = $mange->getAliment();
+                $mange->aliment->substitut = $mange->aliment->getSubstitution();
+
+                $designation = $mange->aliment->designation;
+                $quantite_dispo = $mange->aliment->quantite_dispo;;
+                $quantite_voulue = $mange->quantite;
+                $substitut = $mange->aliment->substitut->designation;
+
+                if(array_key_exists($designation, $aliments_zone)){
+                    $aliments_zone[$designation]["quantite_voulue"] += $quantite_voulue;
+                } else {
+                    $tmp["designation"] = $designation;
+                    $tmp["quantite_dispo"] = $quantite_dispo;
+                    $tmp["quantite_voulue"] = $quantite_voulue;
+                    $tmp["substitut"] = $substitut;
+
+                    $aliments_zone[$designation] = $tmp;
+                }
+            }
+        }
+
         $aliments = (new Aliment())->getAll();
 
-        // load javascripts
-        $scripts_src = [
-            URL."js/repas/formulaire_ajout.js"
-        ];
+        foreach ($aliments as $aliment){
+            if(!array_key_exists($aliment->designation, $aliments_zone)){
+                $designation = $aliment->designation;
+                $quantite_dispo = $aliment->quantite_dispo;;
+                $quantite_voulue = 0;
+                $substitut = $aliment->getSubstitution()->designation;
+
+                $tmp["designation"] = $designation;
+                $tmp["quantite_dispo"] = $quantite_dispo;
+                $tmp["quantite_voulue"] = $quantite_voulue;
+                $tmp["substitut"] = $substitut;
+
+                $aliments_zone[$designation] = $tmp;
+            }
+        }
+
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/menu.php';

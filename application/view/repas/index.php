@@ -31,7 +31,7 @@
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a href="<?php echo URL ?>repas/formulaire_ajout" class="btn btn-block btn-social btn-warning">
+                                <a href="<?php echo URL ?>repas/afficher_zones" class="btn btn-block btn-social btn-warning">
                                     <i class="fa fa-plus"></i> Ajouter une nouvelle fiche repas
                                 </a>
                             </li>
