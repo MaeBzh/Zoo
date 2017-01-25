@@ -43,7 +43,7 @@
                         </a>
                     </li>
                 <?php } ?>
-                <?php if ($utilisateur->type == "secretaire" || $utilisateur->type == "responsable_zone") { ?>
+                <?php if ($utilisateur->type == "responsable_zone") { ?>
                     <li>
                         <a href="<?php echo URL ?>repas">
                             <i class="fa fa-cutlery"></i> Gestion des repas
