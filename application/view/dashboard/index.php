@@ -32,7 +32,7 @@
                     </div>
                     <div class="box-body chart-responsive">
                         <div class="chart">
-                            <canvas id="consomationAliments" style="height: 500px; width: 300px;"></canvas>
+                            <canvas id="consomationAliments" height="1" width="2"></canvas>
                         </div>
                     </div>
                     <!-- /.box-body -->

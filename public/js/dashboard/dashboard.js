@@ -12,6 +12,7 @@ $(document).ready(function(){
 
         var chartConsomationAliments = new Chart(ctx_consomation_aliments, {
             type: 'bar',
+            responsive: true,
             data: data,
             options: {
                 legend: {
