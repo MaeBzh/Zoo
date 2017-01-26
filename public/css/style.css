@@ -42,16 +42,26 @@
   border-bottom: 1px solid;
 }
 
+.box.box-primary {
+  border-top-color: #231F40;
+}
+.box.box-success {
+  border-top-color: #89A00D;
+}
+.box.box-danger {
+  border-top-color: #89A00D;
+}
+
 .box-info .box-footer, .box-info .box-header, .box-info .box-body{
-  border-color: #00c0ef ;
+  border-color: #231F40 ;
 }
 
 .box-primary .box-footer, .box-primary .box-header, .box-primary .box-body{
-  border-color: #3c8dbc ;
+  border-color: #231F40 ;
 }
 
 .box-success .box-footer, .box-success .box-header, .box-success .box-body{
-  border-color: #00a65a ;
+  border-color: #89A00D ;
 }
 
 .box-warning .box-footer, .box-warning .box-header, .box-warning .box-body{
@@ -59,9 +69,12 @@
 }
 
 .box-danger .box-footer, .box-danger .box-header, .box-danger .box-body{
-  border-color: #dd4b39 ;
+  border-color: #89A00D ;
 }
 
+.connecte {
+  color : #89A00D;
+}
 /************************************* fonts***************************************************/
 
 @font-face {

@@ -32,7 +32,7 @@
                                     <th>Aliment</th>
                                     <th>Quantité à distribuer</th>
                                     <th class="text-center">Quantité en stock</th>
-                                    <th>Aliment de substitut</th>
+                                    <th>Aliment de substitution</th>
                                 </tr>
                                 </thead>
                                 <tbody>

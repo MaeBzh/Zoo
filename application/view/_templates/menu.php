@@ -7,7 +7,7 @@
             <div class="user-panel">
                 <div class="info" style="">
                     <p><i class="fa fa-user"></i> <?php echo $utilisateur->prenom . " " . $utilisateur->nom; ?></p>
-                    <p><i class="fa fa-circle text-success"></i> Connecté</p>
+                    <p><i class="connecte fa fa-circle text-success"></i> Connecté</p>
                 </div>
             </div>
             <!-- search form -->

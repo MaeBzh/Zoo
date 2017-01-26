@@ -30,7 +30,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="<?php echo URL ?>" class="logo" >
+        <a class="logo" >
             <p class="titre_logo" ><span class="lettre_logo" >Z</span>oo de <span  class="lettre_logo">B</span>ougenais</p>
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <!-- logo for regular state and mobile devices -->
