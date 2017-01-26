@@ -44,12 +44,12 @@ class RepasController extends Controller
 
 
 //        $liste_repas = (new Repas())->getAll($date_debut_interval, $date_fin_interval);
-               $liste_repas = (new Repas())->getAll();
+        $liste_repas = (new Repas())->getAll();
 
         // Pour chaque repas recupérer on va completer l'objet avec des objet de chaque clé etrangère
         // Il sera plus lisible de lire le nom et prenom du responsable que son responsable_id
         // Chaque modification de $repas impacte directement la collection $liste_repas
-        foreach ($liste_repas as $repas){
+        foreach ($liste_repas as $repas) {
             $repas->responsable = $repas->getResponsable();
             $repas->aliment = $repas->getAliment();
             $repas->zone = $repas->getZone();
@@ -107,9 +107,9 @@ class RepasController extends Controller
         $aliments_zone = [];
         $tmp = [];
 
-        foreach ($animaux as $animal){
+        foreach ($animaux as $animal) {
             $animal->mange = (new Mange())->getByAnimal($animal->id);
-            foreach ($animal->mange as $mange){
+            foreach ($animal->mange as $mange) {
                 $mange->aliment = $mange->getAliment();
                 $mange->aliment->substitut = $mange->aliment->getSubstitution();
 
@@ -118,23 +118,23 @@ class RepasController extends Controller
                 $quantite_voulue = $mange->quantite;
                 $substitut = $mange->aliment->substitut->designation;
 
-                if(array_key_exists($designation, $aliments_zone)){
-                    $aliments_zone[$designation]["quantite_voulue"] += $quantite_voulue;
+                if (array_key_exists($mange->aliment->id, $aliments_zone)) {
+                    $aliments_zone[$mange->aliment->id]["quantite_voulue"] += $quantite_voulue;
                 } else {
                     $tmp["designation"] = $designation;
                     $tmp["quantite_dispo"] = $quantite_dispo;
                     $tmp["quantite_voulue"] = $quantite_voulue;
                     $tmp["substitut"] = $substitut;
 
-                    $aliments_zone[$designation] = $tmp;
+                    $aliments_zone[$mange->aliment->id] = $tmp;
                 }
             }
         }
 
         $aliments = (new Aliment())->getAll();
 
-        foreach ($aliments as $aliment){
-            if(!array_key_exists($aliment->designation, $aliments_zone)){
+        foreach ($aliments as $aliment) {
+            if (!array_key_exists($aliment->id, $aliments_zone)) {
                 $designation = $aliment->designation;
                 $quantite_dispo = $aliment->quantite_dispo;;
                 $quantite_voulue = 0;
@@ -145,7 +145,7 @@ class RepasController extends Controller
                 $tmp["quantite_voulue"] = $quantite_voulue;
                 $tmp["substitut"] = $substitut;
 
-                $aliments_zone[$designation] = $tmp;
+                $aliments_zone[$aliment->id] = $tmp;
             }
         }
 
@@ -169,18 +169,25 @@ class RepasController extends Controller
         $date_repas = date("Y-m-d H:i:s");
         $responsable_id = $utilisateur->id;
 
-        for ($i=0; $i<count($aliment_id); $i++) {
-            $repas = new Repas();
-            $repas->quantite = $quantite[$i];
-            $repas->aliment_id = $aliment_id[$i];
-            $repas->date_repas = $date_repas;
-            $repas->zone_id = $zone_id;
-            $repas->responsable_id = $responsable_id;
+        for ($i = 0; $i < count($aliment_id); $i++) {
+            if ($quantite[$i] > 0) {
+                $repas = new Repas();
+                $repas->quantite = $quantite[$i];
+                $repas->aliment_id = $aliment_id[$i];
+                $repas->date_repas = $date_repas;
+                $repas->zone_id = $zone_id;
+                $repas->responsable_id = $responsable_id;
 
-            $repas->insert();
+                $repas->insert();
+
+                // Mise à jour du stock
+                $aliment = (new Aliment())->getById($aliment_id[$i]);
+                $aliment->quantite_dispo -= $quantite[$i];
+                $aliment->update();
+            }
         }
 
-        $location = URL."repas";
+        $location = URL . "repas";
 
         header("Location: $location");
 
@@ -216,14 +223,16 @@ class RepasController extends Controller
     /**
      * Affiche le formulaire pour supprimer un repas
      */
-    public function formulaire_suppression(){
+    public function formulaire_suppression()
+    {
 
     }
 
     /**
      * Traite les informations envoyées depuis le formulaire de suppression
      */
-    public function post_formulaire_suppression(){
+    public function post_formulaire_suppression()
+    {
 
     }
 }
