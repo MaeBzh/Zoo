@@ -23,7 +23,7 @@ Les différents languages de programmation et outils utilisés sont listés ci-d
 
 ## Structure du projet
 
-![folder_structure.jpg](http://www.filedropper.com/sanstitre1_1)
+![759498Sanstitre1.png](http://img15.hostingpics.net/pics/759498Sanstitre1.png)
 
 ## Installation du projet
 
