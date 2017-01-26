@@ -4,11 +4,11 @@ Projet BDD - Cnam 2016/2017
 ## Description du dépôt ##
 
 Zoo est un projet étudiant réalisé dans le cadre de la formation "Programmation de site web", diplôme délivré par le [CNAM](https://www.cnam-bretagne.fr/).
-Les objectifs étaient de se former à la gestion de bases de données par le biais d'un petit projet à mener en parrèle avec le module BDD du CNAM.
+Les objectifs étaient de se former à la gestion de bases de données par le biais d'un petit projet à mener en parallèle du module BDD du CNAM.
 
 ## Language et outils ##
 
-Les différents language de programmation et outils utilisés sont listés ci-dessous :
+Les différents languages de programmation et outils utilisés sont listés ci-dessous :
 
   * Wamp x86
   * MySQL 5.6
@@ -34,7 +34,7 @@ Les différents language de programmation et outils utilisés sont listés ci-de
   git clone https://github.com/MaeBzh/Zoo.git
 ~~~
 
-### 2 - Installer des dépendances
+### 2 - Installer les dépendances
 
 Dépendances Composer
 ~~~Bash
