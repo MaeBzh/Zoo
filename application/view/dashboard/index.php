@@ -16,87 +16,68 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <!-- AREA CHART -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Quantité de stock disponible par aliment</h3>
-
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                        class="fa fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i
-                                        class="fa fa-times"></i></button>
-                        </div>
+                        <h3 class="box-title">Quantité de stock disponible par aliment (avec indice de stock critique)</h3>
                     </div>
                     <div class="box-body chart-responsive">
                         <div class="chart">
-                            <canvas id="consomationAliments" height="1" width="2"></canvas>
+                            <canvas id="stocks_aliments" height="1" width="3"></canvas>
                         </div>
                     </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
+            </div>
 
+            <div class="col-md-4">
+                <!-- LINE CHART -->
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Répartition des animaux par espèce</h3>
+                    </div>
+                    <div class="box-body chart-responsive">
+                        <div class="chart">
+                            <canvas id="nb_animaux_especes" height="2" width="3"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- /.col (LEFT) -->
+            <div class="col-md-6">
                 <!-- DONUT CHART -->
                 <div class="box box-danger">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Donut Chart</h3>
-
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                        class="fa fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i
-                                        class="fa fa-times"></i></button>
-                        </div>
+                        <h3 class="box-title">Quantité estimative des aliments mangés chaque jour</h3>
                     </div>
                     <div class="box-body chart-responsive">
-
+                        <div class="chart">
+                            <canvas id="nb_aliments_manges_jour" height="1" width="3"></canvas>
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
 
             </div>
-            <!-- /.col (LEFT) -->
+
             <div class="col-md-6">
-                <!-- LINE CHART -->
-                <div class="box box-info">
+                <!-- DONUT CHART -->
+                <div class="box box-warning">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Line Chart</h3>
-
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                        class="fa fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i
-                                        class="fa fa-times"></i></button>
-                        </div>
+                        <h3 class="box-title">Répartition des animaux par zone</h3>
                     </div>
                     <div class="box-body chart-responsive">
-
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-
-                <!-- BAR CHART -->
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Bar Chart</h3>
-
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                        class="fa fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i
-                                        class="fa fa-times"></i></button>
+                        <div class="chart">
+                            <canvas id="nb_animaux_zones" height="1" width="3"></canvas>
                         </div>
-                    </div>
-                    <div class="box-body chart-responsive">
-
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -105,7 +86,6 @@
             </div>
             <!-- /.col (RIGHT) -->
         </div>
-        <!-- /.row -->
 
     </section>
     <!-- /.content -->
