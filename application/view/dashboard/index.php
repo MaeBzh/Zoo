@@ -55,7 +55,7 @@
                 <!-- DONUT CHART -->
                 <div class="box box-danger">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Quantité estimative des aliments mangés chaque jour</h3>
+                        <h3 class="box-title">Quantité mensuelle estimative des aliments consommés </h3>
                     </div>
                     <div class="box-body chart-responsive">
                         <div class="chart">

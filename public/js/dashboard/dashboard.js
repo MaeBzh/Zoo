@@ -1,6 +1,3 @@
-/**
- * Created by Julien-Fixe on 24/01/2017.
- */
 
 $(document).ready(function(){
 

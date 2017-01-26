@@ -193,7 +193,7 @@ class DashboardController extends Controller
             $colors_already_generated[] = $color;
 
             $labels[] = $aliment["designation"];
-            $data[] = $aliment["quantite_voulue"];
+            $data[] = $aliment["quantite_voulue"]*30;
             $backgroundColor[] = $color;
         }
 
