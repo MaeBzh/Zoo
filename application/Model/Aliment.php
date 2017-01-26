@@ -13,10 +13,7 @@ class Aliment extends Model
     public $substitution ;
     public $quantite_dispo ;
 
-    /**
-     * Retourne une instance Aliment correspondant à responsable_id de l'objet courant
-     * @return Utilisateur
-     */
+
     public function getSubstitution(){
         return (new Aliment())->getById($this->substitution);
     }
@@ -39,5 +36,18 @@ class Aliment extends Model
         );
         $query->execute($parameters);
         return $query->fetchObject(Aliment::class);
+    }
+
+    public function update(){
+        $aliment_table = self::$table;
+
+        $query = self::$db->prepare("UPDATE $aliment_table SET quantite_dispo = :quantite_dispo, designation = :designation, substitution = :substitution WHERE id = :id");
+        $parameters = array(
+            ':id' => $this->id,
+            ':quantite_dispo' => $this->quantite_dispo,
+            ':designation' => $this->designation,
+            ':substitution' => $this->substitution
+        );
+        return $query->execute($parameters);
     }
 }

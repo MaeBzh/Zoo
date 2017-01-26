@@ -7,11 +7,6 @@ use PDO;
 
 class Repas extends Model
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
     public static $table = "repas";
 
     public $responsable_id;

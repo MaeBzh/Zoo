@@ -8,7 +8,9 @@ class Utilisateur extends Model
 {
     public static $table = 'utilisateur';
 
-    public static $type_enum = ['responsable_zone', 'secretaire', 'magasinier'];
+    public static $type_enum_responsable = 'responsable';
+    public static $type_enum_secretaire = 'secretaire';
+    public static $type_enum_magasinier = 'magasinier';
 
     public $id ;
     public $nom ;
@@ -39,7 +41,35 @@ class Utilisateur extends Model
 
         $query = self::$db->prepare("SELECT * FROM $responsables_table WHERE type = :type");
         $parameters = [
-          ":type" => self::$type_enum[0]
+          ":type" => self::$type_enum_responsable
+        ];
+        $query->execute($parameters);
+
+        // On récupère une collection d'objet grace à PDO::FTECH_OBJ de la classe Zone
+        return $query->fetchAll(\PDO::FETCH_CLASS, self::class);
+    }
+
+    public function getSecretaires()
+    {
+        $responsables_table = self::$table;
+
+        $query = self::$db->prepare("SELECT * FROM $responsables_table WHERE type = :type");
+        $parameters = [
+            ":type" => self::$type_enum_secretaire
+        ];
+        $query->execute($parameters);
+
+        // On récupère une collection d'objet grace à PDO::FTECH_OBJ de la classe Zone
+        return $query->fetchAll(\PDO::FETCH_CLASS, self::class);
+    }
+
+    public function getMagasiniers()
+    {
+        $responsables_table = self::$table;
+
+        $query = self::$db->prepare("SELECT * FROM $responsables_table WHERE type = :type");
+        $parameters = [
+            ":type" => self::$type_enum_magasinier
         ];
         $query->execute($parameters);
 

@@ -8,9 +8,6 @@ class Animal extends Model
 {
     public static $table = "animal";
 
-    public static $sexe_enum = ['Mâle', 'Femelle'];
-    public static $procede_identification_enum = ['Puce', 'Tatouage'];
-
     public $id ;
     public $nom;
     public $commentaire ;
@@ -23,20 +20,10 @@ class Animal extends Model
     public $zone_id ;
     public $espece_id ;
 
-
-
-    /**
-     * Retourne une instance Utilisateur correspondant à responsable_id de l'objet courant
-     * @return Utilisateur
-     */
     public function getZone(){
         return (new Zone())->getById($this->zone_id);
     }
 
-    /**
-     * Retourne une instance Animal correspondant à animal_id de l'objet courant
-     * @return Animal
-     */
     public function getEspece(){
         return (new Espece())->getById($this->espece_id);
     }
@@ -48,7 +35,6 @@ class Animal extends Model
         $query->execute();
         return $query->fetchAll(\PDO::FETCH_CLASS, Aliment::class);
     }
-
 
     public function getById($id){
         $animal_table = Animal::$table;
@@ -95,7 +81,6 @@ class Animal extends Model
 
         return explode("','",preg_replace("/(enum|set)\('(.+?)'\)/","\\2", $result->Type));
     }
-
 
     public function getEnumIdentification()
     {

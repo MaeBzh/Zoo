@@ -12,17 +12,6 @@ class Mange extends Model
     public $animal_id ;
     public $quantite ;
 
-
-
-    public function getAll(){
-        $mange_table = self::$table;
-
-        $query = self::$db->prepare("SELECT * FROM $mange_table");
-
-        $query->execute();
-        return $query->fetchAll(\PDO::FETCH_CLASS, self::class);
-    }
-
     public function getAnimal(){
         return (new Animal())->getById($this->animal_id);
     }
@@ -50,6 +39,15 @@ class Mange extends Model
             ':aliment_id' => $aliment_id
         );
         $query->execute($parameters);
+        return $query->fetchAll(\PDO::FETCH_CLASS, self::class);
+    }
+
+    public function getAll(){
+        $mange_table = self::$table;
+
+        $query = self::$db->prepare("SELECT * FROM $mange_table");
+
+        $query->execute();
         return $query->fetchAll(\PDO::FETCH_CLASS, self::class);
     }
 }

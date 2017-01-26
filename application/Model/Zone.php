@@ -12,10 +12,6 @@ class Zone extends Model
     public $designation ;
     public $responsable_id ;
 
-    /**
-     * Retourne une instance Utilisateur correspondant à responsable_id de l'objet courant
-     * @return Utilisateur
-     */
     public function getResponsable()
     {
         return (new Utilisateur())->getById($this->responsable_id);
