@@ -81,10 +81,10 @@
                     <div class="box-body">
                         <div class="callout callout-warning">
                             <p style="font-size: 1.2em"><i class="fa fa-exclamation-triangle"></i> Cette interface est
-                                uniquement réservé au personnel du zoo.</p>
+                                uniquement réservée au personnel du zoo.</p>
                         </div>
                         <p style="font-size: 1.2em">Afin d'accéder au contenu de la plateforme de gestion du Zoo de
-                            Bougenais
+                            Bougenais,
                             vous devez vous munir de :</p>
                         <ul style="font-size: 1.2em">
                             <li><i class="fa fa-user"></i> Votre identifiant de connexion</li>
@@ -95,7 +95,7 @@
 
                     <div class="box-footer">
                         <p style="font-size: 1.2em"><i class="fa fa-info-circle"></i> En cas de perte de vos
-                            identifiants, adressez vous au responsable informatique du parc.</p>
+                            identifiants, adressez-vous au responsable informatique du parc.</p>
                         <ul style="font-size: 1.2em">
                             <li><i class="fa fa-user"></i> Compte secretaire : ferland.virginie / ferland47</li>
                             <li><i class="fa fa-user"></i> Compte responsable : roy.antoine / antoine45</li>

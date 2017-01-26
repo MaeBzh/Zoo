@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <div class="box box-warning">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-paw"></i> Liste des animaux de l'espèce : <?php echo $espece->nom_vulgaire ?> </h3>
+                        <h3 class="box-title"><i class="fa fa-paw"></i> Liste des animaux de l'espèce : <b><?php echo $espece->nom_vulgaire ?> </b></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

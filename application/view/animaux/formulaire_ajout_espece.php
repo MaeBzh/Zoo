@@ -46,7 +46,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Famille</label>
+                                <label>Sélectionnez la famille</label>
                                 <select class="form-control" name="famille">
                                     <?php foreach ($familles as $famille){ ?>
                                         <option value="<?php echo $famille->id ?>"><?php echo $famille->designation ?></option>

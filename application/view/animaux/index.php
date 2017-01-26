@@ -53,15 +53,22 @@
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a class="btn btn-block btn-social btn-warning">
-                                    <i class="fa fa-pencil"></i> Modifier une fiche espèce
+                                <a  href="<?php echo URL ?>animaux/afficher_liste_especes" class="btn btn-block btn-social btn-warning">
+                                    <i class="fa fa-pencil"></i> Modifier/supprimer une fiche espèce
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="list-group-item">
+                                <a href="<?php echo URL ?>animaux/formulaire_ajout_famille" class="btn btn-block btn-social btn-warning">
+                                    <i class="fa fa-plus"></i> Ajouter une nouvelle fiche famille
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a class="btn btn-block btn-social btn-warning">
-                                    <i class="fa fa-trash"></i> Supprimer une fiche espèce
+                                <a  href="<?php echo URL ?>animaux/afficher_liste_familles" class="btn btn-block btn-social btn-warning">
+                                    <i class="fa fa-pencil"></i> Modifier/supprimer une fiche famille
                                 </a>
                             </li>
+
                         </ul>
                     </div>
                     <!-- /.box-body -->

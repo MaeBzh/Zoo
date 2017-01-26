@@ -75,4 +75,32 @@ class Espece extends Model
 
         return $query->execute($parameters);
     }
+
+    public function update(){
+        $espece_table = self::$table;
+
+        $query = self::$db->prepare("UPDATE $espece_table SET nom_vulgaire = :nom_vulgaire, nom_scientifique = :nom_scientifique, nbre_individus_vivants = :nbre_individus_vivants, espece_menacee = :espece_menacee, famille_id = :famille_id
+          WHERE id = :id");
+        $parameters = array(
+            ':id' => $this->id,
+            ':nom_vulgaire' => $this->nom_vulgaire,
+            ':nom_scientifique' => $this->nom_scientifique,
+            ':nbre_individus_vivants' => $this->nbre_individus_vivants,
+            ':espece_menacee' => $this->espece_menacee,
+            ':famille_id' => $this->famille_id,
+
+        );
+        return $query->execute($parameters);
+    }
+
+    public function delete(){
+        $espece_table = self::$table;
+
+        $query = self::$db->prepare("DELETE FROM $espece_table WHERE id = :id");
+        $parameters = array(
+            ':id' => $this->id
+        );
+
+        return $query->execute($parameters);
+    }
 }

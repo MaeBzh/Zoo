@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <div class="box box-warning">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-paw"></i> Liste des animaux pour la zone : <?php echo $zone->designation ?></h3>
+                        <h3 class="box-title"><i class="fa fa-paw"></i> Liste des animaux pour la zone : <b><?php echo $zone->designation ?></b></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
