@@ -31,23 +31,23 @@
                                 <tr>
                                     <th>Aliment</th>
                                     <th>Quantité à distribuer</th>
-                                    <th>Quantité en stock</th>
+                                    <th class="text-center">Quantité en stock</th>
                                     <th>Aliment de substitut</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php foreach ($aliments_zone as $aliment_id => $aliment) { ?>
                                     <tr <?php if ($aliment["quantite_voulue"] > $aliment["quantite_dispo"]) { echo "class='danger'"; } ?>>
-                                        <td>
+                                        <td >
                                             <?php echo $aliment["designation"]; ?>
                                             <?php if ($aliment["quantite_voulue"] > $aliment["quantite_dispo"]) { ?>
                                                 <span class="text-danger" style="margin: 0px 7px "><i class="fa fa-exclamation-triangle"></i> Quantité en stock insuffisant !</span>
                                             <?php } ?>
                                             <input type="hidden" name="aliment[]" value="<?php echo $aliment_id; ?>" >
                                         </td>
-                                        <td><input type="number" class="form-control" name="quantite[]" value="<?php echo $aliment["quantite_voulue"]; ?>" min="0" max="<?php echo $aliment["quantite_dispo"]; ?>" required></td>
-                                        <td><?php echo $aliment["quantite_dispo"]; ?></td>
-                                        <td><?php echo $aliment["substitut"]; ?></td>
+                                        <td class="text-center"><input type="number" class="form-control" name="quantite[]" value="<?php echo $aliment["quantite_voulue"]; ?>" min="0" max="<?php echo $aliment["quantite_dispo"]; ?>" required></td>
+                                        <td class="text-center"><?php echo $aliment["quantite_dispo"]; ?></td>
+                                        <td ><?php echo $aliment["substitut"]; ?></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
