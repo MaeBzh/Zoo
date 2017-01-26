@@ -4,6 +4,7 @@ namespace Mini\Controller;
 
 use Mini\Model\Animal;
 use Mini\Model\Espece;
+use Mini\Model\Famille;
 use Mini\Model\Zone;
 
 
@@ -68,6 +69,46 @@ class AnimauxController extends Controller
 
 
         $animal->insert();
+
+        $location = URL . "animaux";
+
+        header("Location: $location");
+
+    }
+    public function formulaire_ajout_espece()
+    {
+        $utilisateur = $this->utilisateur;
+
+        $familles = (new Famille())->getAll();
+        $menaces = (new Espece())->getEnumMenace();
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/menu.php';
+        require APP . 'view/animaux/formulaire_ajout_espece.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    public function post_formulaire_ajout_espece()
+    {
+        $utilisateur = $this->utilisateur;
+
+        $nom_vulgaire = $_POST['nom_vulgaire'];
+        $nom_scientifique = $_POST['nom_scientifique'];
+        $nbre_individus_vivants = $_POST['nbre_individus_vivants'];
+        $espece_menacee = $_POST['espece_menacee'];
+        $famille_id = $_POST['famille'];
+
+        $espece = new Espece();
+        $espece->nom_vulgaire = $nom_vulgaire;
+        $espece->nom_scientifique = $nom_scientifique;
+        $espece->nbre_individus_vivants = $nbre_individus_vivants;
+        $espece->espece_menacee = $espece_menacee;
+        $espece->famille_id = $famille_id;
+
+
+
+        $espece->insert();
 
         $location = URL . "animaux";
 

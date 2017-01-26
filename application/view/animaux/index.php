@@ -48,7 +48,7 @@
                             </li>
                             <li class="divider"></li>
                             <li class="list-group-item">
-                                <a class="btn btn-block btn-social btn-warning">
+                                <a href="<?php echo URL ?>animaux/formulaire_ajout_espece" class="btn btn-block btn-social btn-warning">
                                     <i class="fa fa-plus"></i> Ajouter une nouvelle fiche espèce
                                 </a>
                             </li>
