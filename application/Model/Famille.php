@@ -37,7 +37,7 @@ class Famille extends Model
         $famille_table = self::$table;
 
         $query = self::$db->prepare("INSERT INTO $famille_table (code, designation) 
-          VALUES (:code, :designation");
+          VALUES (:code, :designation)");
         $parameters = array(
             ':code' => $this->code,
             ':designation' => $this->designation
