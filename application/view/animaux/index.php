@@ -63,12 +63,6 @@
                                     <i class="fa fa-plus"></i> Ajouter une nouvelle fiche famille
                                 </a>
                             </li>
-                            <li class="list-group-item">
-                                <a  href="<?php echo URL ?>animaux/afficher_liste_familles" class="btn btn-block btn-social btn-warning">
-                                    <i class="fa fa-pencil"></i> Modifier/supprimer une fiche famille
-                                </a>
-                            </li>
-
                         </ul>
                     </div>
                     <!-- /.box-body -->
