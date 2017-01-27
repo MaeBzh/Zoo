@@ -32,8 +32,8 @@ class Application
             header('Location: '.$location);
         } elseif (!$this->url_controller) {
 
-            $page = new \Mini\Controller\HomeController();
-            $page->index();
+            $page = new \Mini\Controller\AuthController();
+            $page->login();
 
         } elseif (file_exists(APP . 'Controller/' . ucfirst($this->url_controller) . 'Controller.php')) {
             // here we did check for controller: does such a controller exist ?
