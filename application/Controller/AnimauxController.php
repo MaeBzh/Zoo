@@ -75,76 +75,6 @@ class AnimauxController extends Controller
         header("Location: $location");
 
     }
-    public function formulaire_ajout_espece()
-    {
-        $utilisateur = $this->utilisateur;
-
-        $familles = (new Famille())->getAll();
-        $menaces = (new Espece())->getEnumMenace();
-
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/_templates/menu.php';
-        require APP . 'view/animaux/formulaire_ajout_espece.php';
-        require APP . 'view/_templates/footer.php';
-    }
-
-    public function post_formulaire_ajout_espece()
-    {
-        $utilisateur = $this->utilisateur;
-
-        $nom_vulgaire = $_POST['nom_vulgaire'];
-        $nom_scientifique = $_POST['nom_scientifique'];
-        $nbre_individus_vivants = $_POST['nbre_individus_vivants'];
-        $espece_menacee = $_POST['espece_menacee'];
-        $famille_id = $_POST['famille'];
-
-        $espece = new Espece();
-        $espece->nom_vulgaire = $nom_vulgaire;
-        $espece->nom_scientifique = $nom_scientifique;
-        $espece->nbre_individus_vivants = $nbre_individus_vivants;
-        $espece->espece_menacee = $espece_menacee;
-        $espece->famille_id = $famille_id;
-
-
-
-        $espece->insert();
-
-        $location = URL . "animaux";
-
-        header("Location: $location");
-
-    }
-
-    public function formulaire_ajout_famille()
-    {
-        $utilisateur = $this->utilisateur;
-
-            // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/_templates/menu.php';
-        require APP . 'view/animaux/formulaire_ajout_famille.php';
-        require APP . 'view/_templates/footer.php';
-    }
-
-    public function post_formulaire_ajout_famille()
-    {
-        $utilisateur = $this->utilisateur;
-
-        $designation = $_POST['designation'];
-        $code = $_POST['code'];
-
-        $famille = new Famille();
-        $famille->designation = $designation;
-        $famille->code = $code;
-
-       $famille->insert();
-
-        $location = URL . "animaux";
-
-        header("Location: $location");
-
-    }
 
     public function formulaire_edition(){
 
@@ -203,29 +133,26 @@ class AnimauxController extends Controller
 
     }
 
-    public function formulaire_edition_espece(){
 
+
+    public function formulaire_ajout_espece()
+    {
         $utilisateur = $this->utilisateur;
 
-        $id = $_GET['id'];
-
-        $espece = (new Espece())->getById($id);
         $familles = (new Famille())->getAll();
         $menaces = (new Espece())->getEnumMenace();
 
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/_templates/menu.php';
-        require APP . 'view/animaux/formulaire_edition_espece.php';
+        require APP . 'view/animaux/formulaire_ajout_espece.php';
         require APP . 'view/_templates/footer.php';
-
     }
 
-    public function post_formulaire_edition_espece(){
-
+    public function post_formulaire_ajout_espece()
+    {
         $utilisateur = $this->utilisateur;
 
-        $id = $_POST['id'];
         $nom_vulgaire = $_POST['nom_vulgaire'];
         $nom_scientifique = $_POST['nom_scientifique'];
         $nbre_individus_vivants = $_POST['nbre_individus_vivants'];
@@ -233,50 +160,15 @@ class AnimauxController extends Controller
         $famille_id = $_POST['famille'];
 
         $espece = new Espece();
-        $espece->id = $id;
         $espece->nom_vulgaire = $nom_vulgaire;
         $espece->nom_scientifique = $nom_scientifique;
         $espece->nbre_individus_vivants = $nbre_individus_vivants;
         $espece->espece_menacee = $espece_menacee;
         $espece->famille_id = $famille_id;
 
-        $espece->update();
 
-        $location = URL . "animaux";
 
-        header("Location: $location");
-
-    }
-    public function formulaire_edition_famille(){
-
-        $utilisateur = $this->utilisateur;
-
-        $id = $_GET['id'];
-
-        $famille = (new Famille())->getById($id);
-
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/_templates/menu.php';
-        require APP . 'view/animaux/formulaire_edition_famille.php';
-        require APP . 'view/_templates/footer.php';
-
-    }
-
-    public function post_formulaire_edition_famille(){
-
-        $utilisateur = $this->utilisateur;
-
-        $id = $_POST['id'];
-        $designation = $_POST['designation'];
-        $code = $_POST['code'];
-
-        $famille = new Famille();
-        $famille->id = $id;
-        $famille->designation = $designation;
-        $famille->code = $code;
-
-        $famille->update();
+        $espece->insert();
 
         $location = URL . "animaux";
 
@@ -299,19 +191,35 @@ class AnimauxController extends Controller
         header("Location: $location");
     }
 
-    public function post_formulaire_suppression_famille(){
 
+    public function formulaire_ajout_famille()
+    {
         $utilisateur = $this->utilisateur;
 
-        $id = $_POST['id'];
+            // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/menu.php';
+        require APP . 'view/animaux/formulaire_ajout_famille.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    public function post_formulaire_ajout_famille()
+    {
+        $utilisateur = $this->utilisateur;
+
+        $designation = $_POST['designation'];
+        $code = $_POST['code'];
 
         $famille = new Famille();
-        $famille->id = $id;
+        $famille->designation = $designation;
+        $famille->code = $code;
 
-        $famille->delete();
+       $famille->insert();
 
-        $location = URL . "animaux/afficher_liste_famille";
+        $location = URL . "animaux";
+
         header("Location: $location");
+
     }
 
     public function afficher_zones()
@@ -338,9 +246,6 @@ class AnimauxController extends Controller
         foreach($animaux as $animal){
             $animal->espece = $animal->getEspece();
         }
-
-
-
             // load views
             require APP . 'view/_templates/header.php';
             require APP . 'view/_templates/menu.php';
@@ -402,8 +307,4 @@ class AnimauxController extends Controller
         require APP . 'view/animaux/consulter_liste_animaux_par_espece.php';
         require APP . 'view/_templates/footer.php';
     }
-
-
-
-
 }
