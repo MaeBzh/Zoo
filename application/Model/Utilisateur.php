@@ -8,7 +8,7 @@ class Utilisateur extends Model
 {
     public static $table = 'utilisateur';
 
-    public static $type_enum_responsable = 'responsable';
+    public static $type_enum_responsable = 'responsable_zone';
     public static $type_enum_secretaire = 'secretaire';
     public static $type_enum_magasinier = 'magasinier';
 
