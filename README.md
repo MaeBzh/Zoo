@@ -38,7 +38,7 @@ Les différents languages de programmation et outils utilisés sont listés ci-d
 
 Dépendances Composer
 ~~~Bash
-  // A éxécuter à la racine du projet : zoo/
+  // A exécuter à la racine du projet : zoo/
   php composer install
 ~~~
 
